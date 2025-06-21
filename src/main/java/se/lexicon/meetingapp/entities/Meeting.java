@@ -2,8 +2,7 @@ package se.lexicon.meetingapp.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import se.lexicon.meetingapp.enums.MeetingLevel;
 
@@ -14,6 +13,9 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Meeting {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -34,6 +36,11 @@ public class Meeting {
     @Column(length = 500)
     private String description;
 
+
+    public void addParticipant(Participant participant){
+        participant.setMeeting(this);
+        this.participants.add(participant);
+    }
 
 }
 

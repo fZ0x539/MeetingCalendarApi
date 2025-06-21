@@ -7,5 +7,12 @@ spring:
     password: 1234
   jpa:
     show-sql: true
+    # Hibernate ddl auto (create, create-drop, update): with "update" the database
+    # schema will be automatically updated accordingly to java entities found in
+    # the project. Set to none if its up and running
+    #DDL stands for Data Definition Language.
     hibernate:
       ddl-auto: update
+
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
