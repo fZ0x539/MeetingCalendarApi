@@ -76,12 +76,6 @@ public class MeetingController {
         if (meeting == null)
             return ResponseEntity.notFound().build();
 
-//        var requestEntity = convertToEntity(request);
-//        requestEntity.setId(meeting.getId());
-//        meetingRepository.save(requestEntity);
-//        return ResponseEntity.ok(convertToDto(requestEntity));
-
-        // 1. Update basic fields
         meeting.setTitle(request.getTitle());
         meeting.setDateTime(request.getDate().atTime(request.getTime()));
         meeting.setMeetingLevel(request.getMeetingLevel());
@@ -107,6 +101,17 @@ public class MeetingController {
         return ResponseEntity.ok(convertToDto(meeting));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMeeting(
+            @PathVariable Long id
+    ) {
+        var meeting = meetingRepository.findById(id).orElse(null);
+        if (meeting == null)
+            return ResponseEntity.notFound().build();
+
+        meetingRepository.delete(meeting);
+        return ResponseEntity.noContent().build();
+    }
 
     private MeetingDTO convertToDto(Meeting meeting) {
         return MeetingDTO.builder()
