@@ -100,11 +100,12 @@ Connection details:
 To modify default settings, edit the application.yaml file:
 - Server port: server.port=8080
 - Database settings **(username & password!)**
-- 
 
 ## Testing
 Run the tests with:
+```bash
 mvn test
+```
 
 
 ## License
