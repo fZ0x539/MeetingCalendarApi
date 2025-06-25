@@ -1,10 +1,10 @@
 package se.lexicon.meetingapp.enums;
 
 public enum MeetingLevel {
-    TEAM("Team"),
-    DEPARTMENT("Department"),
-    DIVISION("Division"),
-    CLIENT("Client");
+    Team("Team"),
+    Department("Department"),
+    Division("Division"),
+    Client("Client");
 
     private final String displayName;
 

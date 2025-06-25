@@ -1,5 +1,6 @@
 package se.lexicon.meetingapp.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class MeetingDTO {
     @FutureOrPresent (message = "Date must be set in the future.")
     private LocalDate date;
 
+    @JsonFormat(pattern = "HH:mm")
     @NotNull (message = "Please enter a time.")
     private LocalTime time;
 

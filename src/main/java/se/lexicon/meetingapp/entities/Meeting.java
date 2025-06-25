@@ -30,6 +30,7 @@ public class Meeting {
     @Enumerated(EnumType.STRING) // Stores the enum name as string in DB
     private MeetingLevel meetingLevel;
 
+    @Builder.Default
     @OneToMany (mappedBy = "meeting", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Participant> participants = new ArrayList<>();
 
