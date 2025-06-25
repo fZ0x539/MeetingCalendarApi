@@ -43,14 +43,20 @@ A Spring Boot backend API for managing calendar meetings and participants.
 
 ### Installation
 1. Clone the repository:
+   ```bash
    git clone https://github.com/fZ0x539/MeetingCalendarApi.git
    cd MeetingCalendarApi
+   ```
 
-2. Build the project:
+3. Build the project:
+   ```bash
    mvn clean install
+   ```
 
-3. Run the application:
+5. Run the application:
+   ```bash
    mvn spring-boot:run
+   ```
 
 The application will start on port 8080 by default.
 
